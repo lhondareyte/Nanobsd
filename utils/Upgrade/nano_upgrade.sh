@@ -66,6 +66,8 @@ _pkg () {
 		echo "Sauvegarde de l'ancienne version"
 		mv ${d} ${d}.sav
 	fi
+	# Extraction du script preexec s'il existe
+	tar xzf ${mnt}/${a}.pkg tmp/preexec.sh > /dev/null 2>&1
 	_runscript preexec.sh && tar xzf ${mnt}/${a}.pkg && _runscript postexec.sh
 	if [ $? -ne 0 ] ; then
 		if [ -d ${d}.sav ] ; then

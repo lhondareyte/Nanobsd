@@ -16,8 +16,8 @@ makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
 		ulpt uipaq udbp urio u3g uslcom uvisor \
 		aue axe cdce cue kue rue udav rum run \
 		uath upgt ural urtw zyd firewire sbp fwe fwip dcons dcons_crom \
-		zfs ntfs xfs ext2fs fdescfs hpfs linprocfs linsysfs msdosfs ntfs\
-		nwfs portalfs reiserfs smbfs unionfs linux"
+		zfs ntfs xfs ext2fs fdescfs hpfs linprocfs linsysfs \
+		msdosfs ntfs nwfs portalfs reiserfs smbfs unionfs linux"
 
 options 	SCHED_ULE		# ULE scheduler
 options 	PREEMPTION		# Enable kernel thread preemption
@@ -27,6 +27,9 @@ options 	SOFTUPDATES		# Enable FFS soft updates support
 options 	UFS_DIRHASH		# Improve performance on big directories
 options 	UFS_GJOURNAL		# Enable gjournal-based UFS journaling
 options 	MD_ROOT			# MD is a potential root device
+options 	MD_ROOT_SIZE=8192
+makeoptions	MFS_IMAGE=/boot/audiobox.img
+options		ROOTDEVNAME=\"ufs:md0\"
 options 	MSDOSFS			# MSDOS Filesystem
 options 	PSEUDOFS		# Pseudo-filesystem framework
 options 	GEOM_PART_GPT		# GUID Partition Tables.

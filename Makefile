@@ -12,7 +12,8 @@ NZ_ROOTSRC = $(shell dirname $(pwd))
 MODULES    = utils
 
 all:  extra
-	@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
+	@/bin/sh $(NANOSCRIPT) -c $(NANOCFG)
+	#@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
 
 extra:
 	for dir in $(MODULES); do \
@@ -24,7 +25,7 @@ world:
 
 kernel:
 	@echo "Building kernel for $(MACHINE)"
-	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/NOIZEBOX
+	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/AUDIOBOX
 	@/bin/sh $(NANOSCRIPT) -w -i -c $(NANOCFG)
 
 install: 

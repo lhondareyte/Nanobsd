@@ -24,7 +24,6 @@ makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
 options 	SCHED_ULE		# ULE scheduler
 options 	PREEMPTION		# Enable kernel thread preemption
 options 	INET			# InterNETworking
-#options 	INET6			# IPv6 communications protocols
 options 	SCTP			# Stream Control Transmission Protocol
 options 	FFS			# Berkeley Fast Filesystem
 options 	SOFTUPDATES		# Enable FFS soft updates support
@@ -43,7 +42,7 @@ options 	COMPAT_FREEBSD4		# Compatible with FreeBSD4
 options 	COMPAT_FREEBSD5		# Compatible with FreeBSD5
 options 	COMPAT_FREEBSD6		# Compatible with FreeBSD6
 options 	COMPAT_FREEBSD7		# Compatible with FreeBSD7
-options 	SCSI_DELAY=5000		# Delay (in ms) before probing SCSI
+options 	SCSI_DELAY=2000		# Delay (in ms) before probing SCSI
 #options 	KTRACE			# ktrace(1) support
 #options 	STACK			# stack(9) support
 options 	SYSVSHM			# SYSV-style shared memory
