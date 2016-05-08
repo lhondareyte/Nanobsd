@@ -11,7 +11,7 @@
 #include "midi.h"
 
 #ifndef __AVR__
-void MIDI_Event()
+void MIDI_Event(void)
 #else
 
 #include "io.h"

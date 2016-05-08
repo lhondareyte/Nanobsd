@@ -21,6 +21,8 @@
  #define bit_is_set(var,pos) ((var) & (1<<(pos)))
 #endif
 
+void MIDI_Event(void);
+
 
 /*
  *  Channel messages
