@@ -41,14 +41,14 @@ ISR (UART_RECEIV_VECT)
 			{
 			case MIDI_SYSEX_MSG:
 				#ifndef __AVR__
-			     	fprintf (stdout, "Message SYSEX (Début)\n",buffer);
+			     	fprintf (stdout, "SYSEX message start\n");
 				#endif
 				next=MIDI_SYSEX_MSG;
 				break;
 
 			case MIDI_EOX_MSG:
 				#ifndef __AVR__
-			     	fprintf (stdout, "Message SYSEX (Fin)\n",buffer);
+			     	fprintf (stdout, "SYSEX message end\n");
 				#endif
 				next=MIDI_UNKNOW_MSG;
 				ready=TRUE;
