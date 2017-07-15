@@ -3,7 +3,7 @@
 
 machine 	amd64
 cpu		HAMMER
-ident		Noizebox-V1-0-fb9-1
+ident		Audiobox-V1-0-fb9-1
 
 makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
 		isp ispfw mpt ncr sym trm adv adw aha aic bt ncv nsp stg \
@@ -34,14 +34,14 @@ options 	MSDOSFS			# MSDOS Filesystem
 options 	PSEUDOFS		# Pseudo-filesystem framework
 options 	GEOM_PART_GPT		# GUID Partition Tables.
 options 	GEOM_LABEL		# Provides labelization
-options 	COMPAT_FREEBSD4		# Compatible with FreeBSD4
-options 	COMPAT_FREEBSD5		# Compatible with FreeBSD5
-options 	COMPAT_FREEBSD6		# Compatible with FreeBSD6
-options 	COMPAT_FREEBSD7		# Compatible with FreeBSD7
+#options 	COMPAT_FREEBSD4		# Compatible with FreeBSD4
+#options 	COMPAT_FREEBSD5		# Compatible with FreeBSD5
+#options 	COMPAT_FREEBSD6		# Compatible with FreeBSD6
+#options 	COMPAT_FREEBSD7		# Compatible with FreeBSD7
 options 	SCSI_DELAY=2000		# Delay (in ms) before probing SCSI
-options 	SYSVSHM			# SYSV-style shared memory
-options 	SYSVMSG			# SYSV-style message queues
-options 	SYSVSEM			# SYSV-style semaphores
+#options 	SYSVSHM			# SYSV-style shared memory
+#options 	SYSVMSG			# SYSV-style message queues
+#options 	SYSVSEM			# SYSV-style semaphores
 options 	_KPOSIX_PRIORITY_SCHEDULING # POSIX P1003_1B real-time extensions
 options 	PRINTF_BUFR_SIZE=128	# Prevent printf output being interspersed.
 options 	KBD_INSTALL_CDEV	# install a CDEV entry in /dev
@@ -102,12 +102,12 @@ device		uart		# Generic UART driver
 # Parallel port
 
 # PCI Ethernet NICs.
-device		bxe		# Broadcom BCM57710/BCM57711/BCM57711E 10Gb Ethernet
+#device		bxe		# Broadcom BCM57710/BCM57711/BCM57711E 10Gb Ethernet
 device		de		# DEC/Intel DC21x4x (``Tulip'')
 device		em		# Intel PRO/1000 Gigabit Ethernet Family
 device		igb		# Intel PRO/1000 PCIE Server Gigabit Family
 #device		ixgb		# Intel PRO/10GbE Ethernet Card
-device		le		# AMD Am7900 LANCE and Am79C9xx PCnet
+#device		le		# AMD Am7900 LANCE and Am79C9xx PCnet
 device		ti		# Alteon Networks Tigon I/II gigabit Ethernet
 
 # PCI Ethernet NICs that use the common MII bus controller code.
