@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # $Id$
-
+#
 
 export TERM=tinyVT
 export PATH="/bin:/sbin:/usr/bin:/usr/sbin"
@@ -9,9 +9,26 @@ export PATH="/bin:/sbin:/usr/bin:/usr/sbin"
 mnt="/media/flashdrive"
 tty="/dev/cuaU0"
 device="$1"
+osname=$(uname -s)
+case $osname in
+	'FreeBSD'|'NetBSD'|'OpenBSD')
+		CURS_CIVIS="vi"
+		CURS_NORM="ho"
+		CURS_HOME="ve"
+		CURS_CLEAR="cl"
+		;;
+	'Linux')
+		CURS_CIVIS="civis"
+		CURS_NORM="home"
+		CURS_HOME="ve"
+		CLEAR="clear"
+		;;
+esac
 
 if [ -f /usr/share/nanobsd/nano_upgrade.msg ] ; then
 	. /usr/share/nanobsd/nano_upgrade.msg
+else
+	exit 0
 fi
 
 _startapp ()
@@ -26,8 +43,7 @@ _startapp ()
 
 _print_vt () 
 { 
-	printf "E" > $tty 
-	printf "${*}" > $tty 
+	tput $CLEAR && printf "${*}" > $tty 
 }
 
 _askuser () {
