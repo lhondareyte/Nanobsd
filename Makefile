@@ -26,28 +26,27 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
 # OF THE POSSIBILITY OF # SUCH DAMAGE.
 #
+
 DEVICE     = /dev/ada1
-MAKE       = /usr/local/bin/gmake
 NANOSCRIPT = /usr/src/tools/tools/nanobsd/nanobsd.sh
-MACHINE    = $(shell uname -m)
+MACHINE    != uname -m
 KERNEL     = kernel.$(MACHINE)
 NANOCFG    = nanobsd.conf
-DISKIMAGE  = /usr/obj/nanobsd.spectro-450/_.disk.full 
-NZ_ROOTSRC = $(shell dirname $(pwd))
+DISKIMAGE  = /usr/obj/nanobsd.SPECTRO/_.disk.full 
 
-all:
-	#@/bin/sh $(NANOSCRIPT) -c $(NANOCFG)
-	#@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
-	# Build kernel
-	@/bin/sh $(NANOSCRIPT) -w -c $(NANOCFG)
+all: world kernel diskimage
 
 world:
 	@/bin/sh $(NANOSCRIPT) -k -i -c $(NANOCFG)
 
 kernel:
 	@echo "Building kernel for $(MACHINE)"
-	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/spectro-450
+	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/SPECTRO
 	@/bin/sh $(NANOSCRIPT) -w -i -c $(NANOCFG)
+
+diskimage:
+	@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
+	@cp $(DISKIMAGE) .
 
 install: 
 	@printf "Add loopback device ..."
