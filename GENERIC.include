@@ -150,7 +150,7 @@ device		ale		# Atheros AR8121/AR8113/AR8114 Ethernet
 device		bce		# Broadcom BCM5706/BCM5708 Gigabit Ethernet
 device		bfe		# Broadcom BCM440x 10/100 Ethernet
 device		bge		# Broadcom BCM570xx Gigabit Ethernet
-device		et		# Agere ET1310 10/100/Gigabit Ethernet
+#device		et		# Agere ET1310 10/100/Gigabit Ethernet
 device		fxp		# Intel EtherExpress PRO/100B (82557, 82558)
 device		jme		# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
 device		lge		# Level 1 LXT1001 gigabit Ethernet
@@ -163,14 +163,14 @@ device		rl		# RealTek 8129/8139
 device		sge		# Silicon Integrated Systems SiS190/191
 device		sis		# Silicon Integrated Systems SiS 900/SiS 7016
 device		sk		# SysKonnect SK-984x & SK-982x gigabit Ethernet
-device		ste		# Sundance ST201 (D-Link DFE-550TX)
-device		stge		# Sundance/Tamarack TC9021 gigabit Ethernet
-device		tl		# Texas Instruments ThunderLAN
+#device		ste		# Sundance ST201 (D-Link DFE-550TX)
+#device		stge		# Sundance/Tamarack TC9021 gigabit Ethernet
+#device		tl		# Texas Instruments ThunderLAN
 device		vge		# VIA VT612x gigabit Ethernet
 device		vr		# VIA Rhine, Rhine II
 device		vte		# DM&P Vortex86 RDC R6040 Fast Ethernet
 device		wb		# Winbond W89C840F
-device		xl		# 3Com 3c90x (``Boomerang'', ``Cyclone'')
+#device		xl		# 3Com 3c90x (``Boomerang'', ``Cyclone'')
 
 # ISA Ethernet NICs.  pccard NICs included.
 
