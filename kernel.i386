@@ -29,7 +29,7 @@
 
 machine 	i386
 #cpu		HAMMER
-ident		spectro-450-V1-0-fb9-1
+ident		spectro
 
 makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
 		isp ispfw mpt ncr sym trm adv adw aha aic bt ncv nsp stg \
