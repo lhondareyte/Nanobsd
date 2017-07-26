@@ -29,7 +29,7 @@
 
 machine 	amd64
 cpu		HAMMER
-ident		spectro-450-V1-0-fb9-1
+ident		spectro
 
 makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
 		isp ispfw mpt ncr sym trm adv adw aha aic bt ncv nsp stg \
@@ -54,8 +54,6 @@ options 	UFS_DIRHASH		# Improve performance on big directories
 options 	UFS_GJOURNAL		# Enable gjournal-based UFS journaling
 options 	MD_ROOT			# MD is a potential root device
 options 	MD_ROOT_SIZE=8192
-makeoptions	MFS_IMAGE=/boot/spectro-450.img
-options		ROOTDEVNAME=\"ufs:md0\"
 options 	MSDOSFS			# MSDOS Filesystem
 options 	PSEUDOFS		# Pseudo-filesystem framework
 options 	GEOM_PART_GPT		# GUID Partition Tables.
