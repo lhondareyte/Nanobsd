@@ -1,0 +1,14 @@
+*.log
+*.md5
+*.tgz
+*.tar
+*.o
+*.pdf
+*.eps
+*~
+utils/Upgrade/tinyvt
+utils/Analyze/AnalyzeMIDI
+utils/Analyze/*.o
+firmwarehotplug-0.1
+pkg/
+_.disk.full
