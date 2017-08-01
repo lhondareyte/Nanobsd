@@ -61,10 +61,3 @@ install:
 	@printf "Writing image to disk..."
 	@dd if=$(DISKIMAGE) of=$(DEVICE) bs=64k > /dev/null 2>&1
 	@echo "done."
-
-termdb:
-	@printf "Building Termcap database ..."
-	@cp /usr/share/misc/termcap .
-	@cat termcap.tinyVT >> termcap
-	@cap_mkdb termcap
-	@echo " done."
