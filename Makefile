@@ -34,13 +34,16 @@ KERNEL     = kernel.$(MACHINE)
 NANOCFG    = nanobsd.conf
 DISKIMAGE  = /usr/obj/nanobsd.SPECTRO/_.disk.full 
 
-all: world kernel diskimage
+all: nanobsd diskimage
+
+nanobsd:
+	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/SPECTRO
+	@/bin/sh $(NANOSCRIPT) -c $(NANOCFG)
 
 world:
 	@/bin/sh $(NANOSCRIPT) -k -i -c $(NANOCFG)
 
 kernel:
-	@echo "Building kernel for $(MACHINE)"
 	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/SPECTRO
 	@/bin/sh $(NANOSCRIPT) -w -i -c $(NANOCFG)
 
