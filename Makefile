@@ -35,7 +35,7 @@ KERNEL     = kernel.$(MACHINE)
 NANOCFG    = nanobsd.conf
 DISKIMAGE  = /usr/obj/nanobsd.$(IDENT)/_.disk.full 
 
-all: nanobsd diskimage getdiskimage
+all: nanobsd diskimage
 
 nanobsd:
 	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/$(IDENT)
@@ -48,17 +48,11 @@ kernel:
 	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/$(IDENT)
 	@/bin/sh $(NANOSCRIPT) -w -i -c $(NANOCFG)
 
-getdiskimage: bootloader
-	@cp $(DISKIMAGE) nanobsd.img
-
 diskimage:
 	@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
+	@cp $(DISKIMAGE) nanobsd.img
 
-bootloader: 
-	@sh utils/bootloader.sh $(DISKIMAGE)
-
-install:
-	@mdconfig -d -u $(MD)
+install: diskimage
 	@printf "Writing image to disk..."
 	@dd if=$(DISKIMAGE) of=$(DEVICE) bs=64k > /dev/null 2>&1
 	@echo "done."
