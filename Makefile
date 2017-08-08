@@ -56,3 +56,8 @@ install: diskimage
 	@printf "Writing image to disk..."
 	@dd if=$(DISKIMAGE) of=$(DEVICE) bs=64k > /dev/null 2>&1
 	@echo "done."
+
+clean:
+	@printf "Cleaning tree ..."
+	@rm -rf /usr/obj/nanobsd.$(IDENT) nanobsd.img
+	@echo "done."
