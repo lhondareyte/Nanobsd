@@ -50,7 +50,7 @@ kernel:
 
 diskimage:
 	@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
-	@cp $(DISKIMAGE) nanobsd.img
+	@mv $(DISKIMAGE) nanobsd.img
 
 install: diskimage
 	@printf "Writing image to disk..."
