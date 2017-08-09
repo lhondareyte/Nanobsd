@@ -59,5 +59,5 @@ install: diskimage
 
 clean:
 	@printf "Cleaning tree ..."
-	@rm -rf /usr/obj/nanobsd.$(IDENT) nanobsd.img
+	@rm -rf /usr/obj/nanobsd.$(IDENT) nanobsd.img nanobsd.env
 	@echo "done."
