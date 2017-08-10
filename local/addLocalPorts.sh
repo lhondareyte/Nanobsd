@@ -8,9 +8,9 @@ fi
 
 for p in ../ports/*/pkg-descr ; do
 	port=$(dirname $p)
-	cd $port 
-	make 
+	cd $port
+	make
 	make package
 	cd -
-	cp $port/wrk/pkg/*.txz ${NANO_PACKAGE_DIR}
+	cp $port/work/pkg/*.txz ${NANO_PACKAGE_DIR}
 done
