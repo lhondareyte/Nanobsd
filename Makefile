@@ -35,8 +35,6 @@ KERNEL     = kernel.$(MACHINE)
 NANOCFG    = nanobsd.conf
 DISKIMAGE  = /usr/obj/nanobsd.$(IDENT)/_.disk.full 
 
-all: nanobsd diskimage
-
 nanobsd:
 	@cp $(KERNEL) /usr/src/sys/$(MACHINE)/conf/$(IDENT)
 	@/bin/sh $(NANOSCRIPT) -c $(NANOCFG)
