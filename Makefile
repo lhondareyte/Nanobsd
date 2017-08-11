@@ -28,7 +28,8 @@
 #
 
 DEVICE     = /dev/ada1
-NANOSCRIPT = /usr/src/tools/tools/nanobsd/nanobsd.sh
+NANODIR    = /usr/src/tools/tools/nanobsd
+NANOSCRIPT = $(NANODIR)/nanobsd.sh
 IDENT      = SPECTRO
 MACHINE    != uname -m
 KERNEL     = kernel.$(MACHINE)
@@ -57,5 +58,5 @@ install: diskimage
 
 clean:
 	@printf "Cleaning tree ..."
-	@rm -rf /usr/obj/nanobsd.$(IDENT) nanobsd.img nanobsd.env
+	@rm -rf /usr/obj/nanobsd.$(IDENT) nanobsd.img nanobsd.env $(NANODIR)/Pkg/*.txz
 	@echo "done."
