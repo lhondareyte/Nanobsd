@@ -13,3 +13,4 @@ firmwarehotplug-0.1
 pkg/
 _.disk.full
 *.img
+nanobsd.env
