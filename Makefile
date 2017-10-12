@@ -48,7 +48,7 @@ kernel:
 	@/bin/sh $(NANOSCRIPT) -w -i -c $(NANOCFG)
 
 diskimage:
-	@/bin/sh $(NANOSCRIPT) -b -c $(NANOCFG)
+	@/bin/sh $(NANOSCRIPT) -k -w -b -c $(NANOCFG)
 	@mv $(DISKIMAGE) nanobsd.img
 
 install: diskimage
