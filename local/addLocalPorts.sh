@@ -6,11 +6,13 @@ fi
 
 [ ! -d ../ports ] && exit 0
 
-for p in ../ports/*/pkg-descr ; do
-	port=$(dirname $p)
-	cd $port
-	make
-	make package
-	cd -
-	cp $port/work/pkg/*.txz ${NANO_PACKAGE_DIR}
+for port in LOCAL_PACKAGES ; do
+	_p="../ports/$port"
+	if [ -d $_p ] ; then
+		cd $_p
+		make
+		make package
+		cd -
+		cp $_p/work/pkg/${port}*.txz ${NANO_PACKAGE_DIR}
+	fi
 done
