@@ -6,7 +6,10 @@ fi
 
 [ ! -d ../ports ] && exit 0
 
-for port in LOCAL_PACKAGES ; do
+echo building...
+
+for port in $LOCAL_PACKAGES ; do
+	echo $port
 	_p="../ports/$port"
 	if [ -d $_p ] ; then
 		cd $_p
