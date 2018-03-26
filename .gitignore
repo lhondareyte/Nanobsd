@@ -1,6 +1,7 @@
 *.log
 *.md5
 *.tgz
+*.xz
 *.tar
 *.o
 *.pdf
