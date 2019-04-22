@@ -10,12 +10,20 @@ echo building...
 
 for port in $LOCAL_PACKAGES ; do
 	echo $port
-	_p="../ports/$port"
-	if [ -d $_p ] ; then
-		cd $_p
+	_d="../ports/$port"
+	if [ -d $_d ] ; then
+		cd $_d
 		make
 		make package
 		cd -
-		cp $_p/work/pkg/${port}*.txz ${NANO_PACKAGE_DIR}
+		# Spectro450 should be the latest installed package
+		# So it rename to _spectro450..txz
+		echo $port | grep spectro450 > /dev/null 2>&1
+		if [ $? -eq 0 ] ; then
+			_p="$_d/work/pkg/${port}*.txz"	
+			cp $_d/work/pkg/${port}*.txz ${NANO_PACKAGE_DIR}/zz$(basename ${_p})
+		else
+			cp $_d/work/pkg/${port}*.txz ${NANO_PACKAGE_DIR}
+		fi
 	fi
 done
