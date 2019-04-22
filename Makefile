@@ -1,7 +1,7 @@
 #
 # This file is part of the spectro-450 Project.
 #
-# Copyright (c)2016-2017  Luc Hondareyte <lhondareyte_AT_laposte.net>.
+# Copyright (c)2016-2017  Luc Hondareyte
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -27,7 +27,7 @@
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-DEVICE     = /dev/ada1
+DEVICE     = /dev/da0
 NANODIR    = /usr/src/tools/tools/nanobsd
 NANOSCRIPT = $(NANODIR)/nanobsd.sh
 IDENT      = SPECTRO
@@ -51,9 +51,9 @@ diskimage:
 	@/bin/sh $(NANOSCRIPT) -k -w -b -c $(NANOCFG)
 	@mv $(DISKIMAGE) nanobsd.img
 
-install: diskimage
+install: 
 	@printf "Writing image to disk..."
-	@dd if=$(DISKIMAGE) of=$(DEVICE) bs=64k > /dev/null 2>&1
+	@dd if=nanobsd.img of=$(DEVICE) bs=64k > /dev/null 2>&1
 	@echo "done."
 
 clean:
