@@ -35,8 +35,8 @@ makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
 		isp ispfw mpt ncr sym trm adv adw aha aic bt ncv nsp stg \
 		isci ch sa ses amr arcmsr asr ciss dpt hptmv hptrr iir ips \
 		mly twa tws aac aacp ida mfi mlx pst twe splash cbb \
-		pccard cardbus ppc ppbus lpt plip ppi vpo puc nve cs ed ex \
-		ep fe ie sn xe wlan wlan_wep wlan_ccmp wlan_tkip wlan_amrr \
+		pccard cardbus ppc ppbus lpt plip ppi vpo puc nve \
+		ie wlan wlan_wep wlan_ccmp wlan_tkip wlan_amrr \
 		an ath ath_pci ath_hal ath_rate_sample bwi bwn ipw iwi iwn \
 		malo mwl ral wi wl wpi vlan tun gif faith \
 		ulpt uipaq udbp urio u3g uslcom uvisor \
@@ -139,8 +139,6 @@ device		re		# RealTek 8139C+/8169/8169S/8110S
 device		rl		# RealTek 8129/8139
 device		vge		# VIA VT612x gigabit Ethernet
 device		vr		# VIA Rhine, Rhine II
-
-# ISA Ethernet NICs.  pccard NICs included.
 
 # Wireless NIC cards
 
