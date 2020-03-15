@@ -31,19 +31,11 @@ machine 	amd64
 cpu		HAMMER
 ident		spectro
 
-makeoptions 	WITHOUT_MODULES=" eisa fdc siis ahb ahc ahd esp hptiop \
-		isp ispfw mpt ncr sym trm adv adw aha aic bt ncv nsp stg \
-		isci ch sa ses amr arcmsr asr ciss dpt hptmv hptrr iir ips \
-		mly twa tws aac aacp ida mfi mlx pst twe splash cbb \
-		pccard cardbus ppc ppbus lpt plip ppi vpo puc nve \
-		ie wlan wlan_wep wlan_ccmp wlan_tkip wlan_amrr \
-		an ath ath_pci ath_hal ath_rate_sample bwi bwn ipw iwi iwn \
-		malo mwl ral wi wl wpi vlan tun gif faith \
-		ulpt uipaq udbp urio u3g uslcom uvisor \
-		aue axe cdce cue kue rue udav rum run \
-		uath upgt ural urtw zyd firewire sbp fwe fwip dcons dcons_crom \
-		zfs ntfs xfs ext2fs fdescfs hpfs linprocfs linsysfs \
-		msdosfs ntfs nwfs portalfs reiserfs smbfs unionfs linux"
+makeoptions 	MODULES_OVERRIDE=" \
+		acpi \
+		usb \
+		msdosfs \
+		sound"
 
 options 	SCHED_ULE		# ULE scheduler
 options 	PREEMPTION		# Enable kernel thread preemption
@@ -115,9 +107,6 @@ options 	VESA		# Add support for VESA BIOS Extensions (VBE)
 device		sc
 options 	SC_PIXEL_MODE	# add support for the raster text mode
 
-# Power management support (see NOTES for more options)
-device		apm
-
 # Serial (COM) ports
 device		uart		# Generic UART driver
 
@@ -129,6 +118,7 @@ device		em		# Intel PRO/1000 Gigabit Ethernet Family
 
 # PCI Ethernet NICs that use the common MII bus controller code.
 # NOTE: Be sure to keep the 'device miibus' line in order to use these NICs!
+device		iflib
 device		miibus		# MII bus support
 device		bce		# Broadcom BCM5706/BCM5708 Gigabit Ethernet
 device		bge		# Broadcom BCM570xx Gigabit Ethernet
