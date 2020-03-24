@@ -1,8 +1,7 @@
 #
 # This file is part of the tinyVT Project.
 #
-# Copyright (c)2016-2017  Luc Hondareyte <lhondareyte_AT_laposte.net>.
-# All rights reserved.
+# Copyright (c)2016-2020  Luc Hondareyte <lhondareyte_AT_laposte.net>.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -39,3 +38,12 @@ tinyVT|tinyVTa|Standard AVR tinyVT Terminal:\
         #:kd=\EOB:kr=\EOC:ku=\EOA:kd=\EOD:
         #:kl=\E[L:kr=\E[R:ku=\E[U:kd=\E[D:
         #:am:xn:mi:co#24:li#2: 
+#
+# Termcap entry for AVR tinyVT-MKII
+tinyVT-MKII|tinyVT2|Standard AVR tinyVT MKII Terminal:\
+        :am:mi:co#40:li#2:xn:\
+        :pc=\040:cl=\EE:ho=\EH:\
+        :cm=\EY%+ %+ :ve=\EC:vi=\Ec:\
+        :k1=\E[1~:k2=\E[2~:k3=\E[3~:\
+        :k4=\E[4~:k5=\E[5~:k6=\E[6~:\
+        :k7=\E[7~:k8=\E[8~:k9=\E[9~:
