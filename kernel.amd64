@@ -1,7 +1,7 @@
 #
 # This file is part of the spectro-450 Project.
 #
-# Copyright (c)2016-2019  Luc Hondareyte
+# Copyright (c)2016-2020  Luc Hondareyte
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -57,8 +57,8 @@ options 	GEOM_LABEL		# Provides labelization
 #options 	COMPAT_FREEBSD7		# Compatible with FreeBSD7
 options 	SCSI_DELAY=2000		# Delay (in ms) before probing SCSI
 options 	SYSVSHM			# SYSV-style shared memory
-#options 	SYSVMSG			# SYSV-style message queues
-#options 	SYSVSEM			# SYSV-style semaphores
+options 	SYSVMSG			# SYSV-style message queues
+options 	SYSVSEM			# SYSV-style semaphores
 options 	_KPOSIX_PRIORITY_SCHEDULING # POSIX P1003_1B real-time extensions
 options 	PRINTF_BUFR_SIZE=128	# Prevent printf output being interspersed.
 options 	KBD_INSTALL_CDEV	# install a CDEV entry in /dev
