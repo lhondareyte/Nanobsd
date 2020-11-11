@@ -6,43 +6,57 @@ by
 ``` NANO_BOOLOADER="boot/boot0" ```
 And remove ```cust_pkgng``` and ```cust_local``` functions in the configuration file.
 
-## Installation
-On a fresh installed FreeBSD12 system, as ```root``` or via ```sudo```:
+## Creating a build environment
+On a fresh installed FreeBSD machine (Latest supported release), as ```root``` or via ```sudo```:
 
-### Dependencies installation
+### Installing dependencies
 ``` 
-pkg install -y git gmake pkgconf autotools autoconf sdcc 
+pkg install -y git \
+               gmake \
+               cmake \
+               pkgconf \
+               autotools \
+               autoconf \
+               sdcc
 ```
 ### Fetching repositories
-``` 
-cd /
+```
+cd 
 mkdir spectro && cd spectro
 git clone https://github.com/lhondareyte/spectro450.git
-git clone https://github.com/lhondareyte/ports.git 
+git clone https://github.com/lhondareyte/ports.git
+cd /usr/ports/sysutils
+ln -s $HOME/spectro/ports/spectro450
 ```
-### Custom packages installation
+### Custom packages
+
 #### DB5 database:
-We need to replace stock db5 package (require by git) by a custom strip down version
-``` 
-cd /spectro/ports/db5
-make package
+We need to replace stock db5 package (require by git and jack) by a custom strip down version
+``` cd $HOME/spectro/ports/db5
 pkg remove git
-pkg autoremove -y # remove git dependencies
-make install 
+pkg autoremove -y      # remove git dependencies
+make && make install   # Install strip down version
 pkg lock -y db5
-pkg install -y db5 
+make install           # Build package for NanoBSD
 ```
 #### Jack audio server
-``` 
-cd /spectro/ports
-for i in libsamplerate jackit
+```
+cd $HOME/spectro/ports
+for d in libsamplerate jackit jack_umidi
 do
-    cd $i
+    cd $d
     make package
     make install
     cd -
-    pkg lock -y $i
-done 
+    pkg lock -y $d
+done
 ```
-Building process may take some time.
+### Building NanoBSD image
+```
+cd $HOME/spectro/spectro450
+make 
+make diskimage
+make install
+```
+Building process may take some time (About 3 hours with a 4gen quad-core i5)
 
