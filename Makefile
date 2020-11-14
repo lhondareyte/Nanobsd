@@ -30,7 +30,7 @@
 DEVICE     = /dev/da0
 NANODIR    = /usr/src/tools/tools/nanobsd
 NANOSCRIPT = $(NANODIR)/nanobsd.sh
-IDENT      = SPECTRO
+IDENT      = NANOBSD
 MACHINE    != uname -m
 KERNEL     = kernel.$(MACHINE)
 NANOCFG    = nanobsd.conf
