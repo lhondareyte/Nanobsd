@@ -23,7 +23,8 @@ pkg install -y git \
 ```
 cd 
 mkdir spectro && cd spectro
-git clone https://github.com/lhondareyte/spectro450.git
+B
+git clone https://github.com/lhondareyte/Nanobsd.git spectro450
 git clone https://github.com/lhondareyte/ports.git
 cd /usr/ports/sysutils
 ln -s $HOME/spectro/ports/spectro450
