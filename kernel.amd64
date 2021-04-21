@@ -134,7 +134,6 @@ device		vr		# VIA Rhine, Rhine II
 
 # Pseudo devices.
 device		loop		# Network loopback
-device		random		# Entropy device
 device		ether		# Ethernet support
 device		pty		# BSD-style compatibility pseudo ttys
 device		md		# Memory "disks"
@@ -147,10 +146,8 @@ device		ohci		# OHCI PCI->USB interface
 device		ehci		# EHCI PCI->USB interface (USB 2.0)
 device		xhci		# XHCI PCI->USB interface (USB 3.0)
 device		usb		# USB Bus (required)
-device		uhid		# "Human Interface Devices"
 device		ukbd		# Keyboard
 device		umass		# Disks/Mass storage - Requires scbus and da
-device		ums		# Mouse
 
 # USB Serial devices
 device		ucom		# USB tty support
@@ -170,3 +167,12 @@ device		snd_ich		# Intel, NVidia and other ICH AC'97 Audio
 device		snd_uaudio	# USB Audio
 device		snd_via8233	# VIA VT8233x Audio
 
+# evdev interface
+options         EVDEV_SUPPORT   # evdev support in legacy drivers
+device          evdev           # input event device support
+device          uinput          # install /dev/uinput cdev
+
+# HID support
+options         HID_DEBUG       # enable debug msgs
+device          hid             # Generic HID support
+options         IICHID_SAMPLING # Workaround missing GPIO INTR support
